@@ -50,15 +50,50 @@ print(top_ten)
 # PROBLEM 4 (4pts)
 # Find the number which appears most often in num_list?
 
-my_counts = [num_list.count(x) for x in num_list]
-print(my_counts)
-print(num_list[my_counts.index(max(my_counts))])
+count = 0
+number = 0
+
+for n in num_list:
+    if num_list.count(n) > count:
+        count = num_list.count(n)
+        number = n
+        print(n)
+
+
+# another way:
+# my_counts = [num_list.count(x) for x in num_list]
+# print(my_counts)
+# print(num_list[my_counts.index(max(my_counts))])
 
 # CHALLENGE PROBLEMS (2pts)
 # TOUGH PROBLEMS, BUT FEW POINTS
 
 # Find the number of prime numbers in num_list?
 # Hint: One way is to just start removing the ones that aren't
+
+def is_prime(n):
+    for i in range(2, n//2):
+        if n % 1 == 0:
+            return False
+    return True
+
+print(is_prime(102))
+
+
+
+# Find the number of  palindromes
+# Hint: This may be easier to do with strings
+
+string_list = [str(x) for x in num_list]
+
+def is_palindrome(my_string):
+    for i in range(len(my_string)):
+        if my_string[i] != my_string[-i -1]:
+            return False
+    return True
+
+print(is_palindrome("AMANAPLANACANALPANAMA"))
+
 # Find the number of palindromes
 # Hint: This may be easier to do with strings
 
